@@ -1,9 +1,21 @@
 
+'use client'
 import Image from "next/image"
 
-function Card({ title }) {
+function Card({ title, user, comments = [], id, setDragged }) {
+    function handleDragStart(event) {
+        setDragged({
+            data: {
+                title,
+                user,
+                comments,
+                id,
+            },
+            list: event.target.closest('[data-id]').dataset.id
+        })
+    }
     return (
-        <div className="flex flex-col gap-1 p-2 rounded-sm bg-slate-100 text-slate-800">
+        <div draggable onDragStart={handleDragStart} className="flex flex-col gap-3 p-2 rounded-md bg-white text-slate-800">
             <div className="flex justify-between">
                 <p>{ title }</p>
                 <span>
@@ -11,11 +23,12 @@ function Card({ title }) {
                 </span>
             </div>
             <div className="flex justify-between">
-                <span>
+                <span className="flex gap-1 items-center">
                     <Image src="../comments.svg" width={20} height={20} alt="Comment button" />
+                    { comments.length > 0 ? comments.length : null}
                 </span>
                 <span>
-                    <Image src="/avatar.png" width={20} height={20} alt="Profile photo" />
+                    <Image src={user.avatar} width={20} height={20} alt="Profile photo" />
                 </span>
             </div>
         </div>
