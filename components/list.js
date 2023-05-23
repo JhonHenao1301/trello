@@ -1,10 +1,21 @@
 
 'use client'
 import Image from "next/image"
+import AddCard from "./add-card"
+import { useState } from "react"
 
 function List({ title, children, handleDrop, id }) {
+
+    const [ addCard, setAddCard ] = useState({
+        active: false,
+        data: null
+    })
     function handleDragOver(event) {
         event.preventDefault()
+    }
+    function handleAddCardEvent(event) {
+        event.preventDefault()
+        setAddCard({ active: true, data: null })
     }
     return (
         <div data-id={id} className="relative flex-1" onDragOver={handleDragOver} onDrop={handleDrop}>
@@ -15,16 +26,15 @@ function List({ title, children, handleDrop, id }) {
                 <div className="flex flex-col gap-4 overflow-auto">
                     {children}
                 </div>
-                <div className="flex flex-col gap-1 relative">
-                    <input type="Text" placeholder="Add a new title for this card" className="rounded-md p-2 text-sm" />
-                    <Image src="/edit.svg" width={20} height={20} className="absolute top-2 right-2 items-center" alt="edit icon"/>
-                </div>
-                <div>
-                    <span className="flex gap-3">
-                        <Image src="/plus-solid.svg" width={14} height={14} alt="Add button" />
-                        Add another card
-                    </span>
-                </div>
+                {
+                    addCard.active ? <AddCard setAddCard={ setAddCard}/> :
+                    <div>
+                        <span className="flex gap-3 hover:cursor-pointer" onClick={handleAddCardEvent}>
+                            <Image src="/plus-solid.svg" width={14} height={14} alt="Add button" />
+                            Add another card
+                        </span>
+                    </div>
+                }
             </div>
         </div>
     )

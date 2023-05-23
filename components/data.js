@@ -1,22 +1,22 @@
 
 export const todoList = [
     {
-        title: 'Añadir nuevas tarjetas',
+        title: 'Add new cards',
         id: 123,
         user: {
-            name: 'pepito',
+            name: 'Pablo',
             avatar: '/avatar.png'
         },
         comments: [
             {
-                text: 'Este feature es prioritario',
+                text: 'This feature is priority',
                 user: {
-                    name: 'pepito',
+                    name: 'Pablo',
                     avatar: '/avatar.png'
                 }
             },
             {
-                text: 'Noo es súper fácil',
+                text: 'Noo, it is too easy',
                 user: {
                     name: 'Leonidas',
                     avatar: '/avatar.png'
@@ -25,7 +25,7 @@ export const todoList = [
         ]
     },
     {
-        title: 'Creación de tarjetas',
+        title: 'Making cards',
         id: 124,
         user: {
             name: 'Miguel',
@@ -33,26 +33,26 @@ export const todoList = [
         },
         comments: [
             {
-                text: 'Este feaure es prioritario',
+                text: 'This feature is almost done',
                 user: {
-                    name: 'pepito',
+                    name: 'Juan',
                     avatar: '/avatar.png'
                 }
             }
         ]
     },
     {
-        title: 'Actualización de tarjetas',
+        title: 'Updating cards',
         id: 125,
         user: {
-            name: 'Miguel',
+            name: 'Juan',
             avatar: '/avatar.png'
         },
         comments: [
             {
-                text: 'Este feaure es prioritario',
+                text: 'Please take care of this issue',
                 user: {
-                    name: 'pepito',
+                    name: 'Julio',
                     avatar: '/avatar.png'
                 }
             }
@@ -62,7 +62,7 @@ export const todoList = [
 
 export const inProgressList = [
     {
-        title: 'Mover tarjetas',
+        title: 'Dropping cards',
         id: 440,
         user: {
             name: 'Leonidas',
@@ -73,7 +73,7 @@ export const inProgressList = [
 
 export const doneList = [
     {
-        title: 'Implementar diseño',
+        title: 'Implement design',
         id: 550,
         user: {
             name: 'Leonidas',
@@ -81,7 +81,7 @@ export const doneList = [
         },
     },
     {
-        title: 'Respnsive design',
+        title: 'Responsive design',
         id: 551,
         user: {
             name: 'Leonidas',
