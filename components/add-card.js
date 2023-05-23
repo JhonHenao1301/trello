@@ -1,13 +1,22 @@
 
 import Image from "next/image"
+import { useId } from "react"
 
 function AddCard({ setAddCard }) {
+    let id = useId()
 
-    function handleSubmit() {
+    function handleSubmit(e) {
+        e.preventDefault()
+        let form = new FormData(e.target)
         setAddCard({
             active: false,
             data: {
-                title: form.get('title')
+                title: form.get('title'),
+                id, 
+                user: {
+                    name: 'Nicolas',
+                    avatar: '/avatar.png'
+                }
             }
         })
     }

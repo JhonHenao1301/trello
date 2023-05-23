@@ -31,21 +31,21 @@ function Board() {
                 </h1>
             </div>
             <main className="flex flex-1 gap-6">
-                <List title='TODO' handleDrop={handleDrop} id="todoList">
+                <List title='TODO' handleDrop={handleDrop} listOfLists={listOfLists} setListOfLists={setListOfLists} id="todoList">
                     {
                         listOfLists.todoList.map(item => (
                             <Card {...item} key={item.id} setDragged={setDragged} />
                         ))
                     }
                 </List>
-                <List title='In Progress' handleDrop={handleDrop} id="inProgressList">
+                <List title='In Progress' handleDrop={handleDrop} listOfLists={listOfLists} setListOfLists={setListOfLists} id="inProgressList">
                     {  
                         listOfLists.inProgressList.map((item) => (
                             <Card {...item} key={item.id} setDragged={setDragged} />
                         ))
                     }
                 </List>
-                <List title='Done' handleDrop={handleDrop}  id="doneList">
+                <List title='Done' handleDrop={handleDrop} listOfLists={listOfLists} setListOfLists={setListOfLists} id="doneList">
                     {
                         listOfLists.doneList.map((item) => (
                             <Card {...item} key={item.id} setDragged={setDragged} />

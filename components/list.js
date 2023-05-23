@@ -2,14 +2,24 @@
 'use client'
 import Image from "next/image"
 import AddCard from "./add-card"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
-function List({ title, children, handleDrop, id }) {
+function List({ title, children, handleDrop, id, setListOfLists, listOfLists }) {
 
     const [ addCard, setAddCard ] = useState({
         active: false,
         data: null
     })
+
+    useEffect(() => {
+        if(addCard.data){
+          let newList = structuredClone(listOfLists)
+          newList[id].push(addCard.data)
+          setListOfLists(newList)
+        }
+        // Set lists to add a new one
+      }, [addCard.data])
+
     function handleDragOver(event) {
         event.preventDefault()
     }
